@@ -1,0 +1,7 @@
+
+
+*********Font Awesome
+npm install font-awesome --save
+
+*****Pipes
+npm install ngx-pipes --save
