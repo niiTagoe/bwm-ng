@@ -4,37 +4,22 @@
 #rentalDetails {
   
  .upper-section {
-    
       img {
-     
         width: 100%;
-   
      }
-
-    
      margin-bottom: 30px;
- 
   }
 
  
   .details-section {
- 
      color: $main-text-color;
-    
-  
   .rental {
-
       &-type {
- 
        font-size: 14px;
- 
        font-weight: 300;
- 
        text-transform: uppercase;
- 
        margin: 0;
-      
-       }
+   }
 
   
       &-title {

@@ -5,3 +5,18 @@ npm install font-awesome --save
 
 *****Pipes
 npm install ngx-pipes --save
+
+****google maps
+https://angular-maps.com/guides/getting-started/
+
+npm install @agm/core@1.0.0-beta.2 --save
+
+setup API key
+
+https://developers.google.com/maps/documentation/javascript/get-api-key?hl=de
+
+use the below url to create the API
+https://wpstorelocator.co/document/create-google-api-keys/
+
+*****help to fix problems
+https://churchthemes.com/page-didnt-load-google-maps-correctly/
