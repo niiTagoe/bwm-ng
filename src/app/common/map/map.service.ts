@@ -23,7 +23,6 @@ export class MapService {
     }
 
     private geocodeLocation(location: string): Observable<any> {
-        debugger;
         if(!this.geoCoder) { this.geoCoder = new (<any>window).google.maps.Geocoder(); }
 
         return new Observable((observer) => {
@@ -37,7 +36,7 @@ export class MapService {
               this.cacheLocation(location, coordinates);
               observer.next({ lat: geometry.lat(), lng: geometry.lng() })
             } else {
-                observer.error('Location could not be geocoder');
+                observer.error('Location could not be geocoded');
             }
           });
        });
