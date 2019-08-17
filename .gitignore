@@ -45,3 +45,4 @@ Thumbs.db
 
 #Rental App
 /server/config/dev.js
+/server/../.vscode

@@ -1,0 +1,16 @@
+
+
+
+******     body pasrser
+
+npm i body-parser --save
+
+
+****encrypt password
+npm i bcrypt --save
+
+**** Json Web Token - JWT
+
+https://www.npmjs.com/package/jsonwebtoken
+
+npm i jsonwebtoken --save
