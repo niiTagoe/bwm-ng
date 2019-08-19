@@ -22,7 +22,7 @@ exports.auth = function(req, res)  {
          const token = jwt.sign({
             userId: user._id,
             username: user.username
-          }, config.SECRET, { expiresIn: '2d' });    
+          }, config.SECRET, { expiresIn: '5d' });    
           
           return res.json(token);
        } else {
