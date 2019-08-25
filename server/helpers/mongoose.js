@@ -7,7 +7,6 @@ module.exports = {
                 normalizeErrors.push({ title: property , detail: errors[property].message })
             }
         }
-
         return normalizeErrors;
     }
 }

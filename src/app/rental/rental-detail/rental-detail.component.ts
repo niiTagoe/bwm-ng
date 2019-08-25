@@ -17,21 +17,16 @@ export class RentalDetailComponent implements OnInit {
              private rentalService: RentalService) { }
 
   ngOnInit() {
-    this.rental = new Rental();
-
     this.route.params.subscribe(
       (params) => {
         this.getRental(params['rentalId']);
-      }
-    )
+      })
   }
 
   getRental(rentalId: string) {
     this.rentalService.getRentalById(rentalId).subscribe(
       (rental: Rental) => {
         this.rental = rental;
-      }
-    )
+    });
   } 
-
 }

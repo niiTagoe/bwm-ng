@@ -31,3 +31,28 @@ npm install moment --save
 npm install ng2-daterangepicker@2.0.12 --save
 
 npm install -save @types/jquery@3.2.12 jquery@3.2.1
+
+http://www.daterangepicker.com/
+https://github.com/evansmwendwa/ng2-daterangepicker
+
+******* install bootstrap modal
+https://ng-bootstrap.github.io/#/getting-started
+
+npm install --save @ng-bootstrap/ng-bootstrap
+
+
+**** install toaster for angualr 5
+
+https://www.npmjs.com/package/ngx-toastr
+
+npm install ngx-toastr@8.10.2 --save
+
+
+******Articles to read
+https://alligator.io/angular/viewchild-access-component/
+https://angular.io/api/core/ViewChild
+https://github.com/evansmwendwa/ng2-daterangepicker
+
+
+##### Angular Styles #####
+https://angular.io/guide/component-styles

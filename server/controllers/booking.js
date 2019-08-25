@@ -13,32 +13,31 @@ exports.createBooking = function(req, res) {
         .populate('bookings')
         .populate('user')
         .exec(function(err, foundRental) {
+            if(err) {
+              return res.status(422).send({errors: normalizeErrors(err.errors)});
+            }
+            if(foundRental.user.id === user.id) {
+              return res.status(422).send({errors: [{title: 'Invalid user!', detail: 'Cannot create booking on your rental!!!'}]});
+            }
 
-      if(err) {
-         return res.status(422).send({errors: normalizeErrors(err.errors)});
-      }
-      if(foundRental.user.id === user.id) {
-        return res.status(422).send({errors: [{title: 'Invalid user!', detail: 'Cannot create booking on your rental!!!'}]});
-      }
+            if(isValidBooking(booking, foundRental)) {
+              booking.user = user;
+              booking.rental = foundRental;
+              foundRental.bookings.push(booking);
 
-      if(isValidBooking(booking, foundRental)) {
-        booking.user = user;
-        booking.rental = foundRental;
-        foundRental.bookings.push(booking);
+              booking.save(function(err) {
+                if(err) {
+                   return res.status(422).send({errors: normalizeErrors(err.errors)});
+                 }
+                 foundRental.save();
+                 User.update({ _id: user._id }, { $push: { bookings: booking } }, function(){});
 
-        booking.save(function(err) {
-          if(err) {
-            return res.status(422).send({errors: normalizeErrors(err.errors)});
-          }
-          foundRental.save();
-          User.update({ _id: user._id }, { $push: { bookings: booking } }, function(){});
-
-          res.json({ startAt: booking.startAt, endAt: booking.endAt });
-        });                                        
-      } else {
-        return res.status(422).send({errors: [{title: 'Invalid booking!', detail: 'Choosen dates are already taken'}]});
-      }
-    })
+                 res.json({ startAt: booking.startAt, endAt: booking.endAt });
+                });                                        
+            } else {
+            return res.status(422).send({errors: [{title: 'Invalid booking!', detail: 'Choosen dates are already taken'}]});
+            }
+        })
 }
 
 function isValidBooking(proposedBooking, rental) {

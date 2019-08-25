@@ -25,7 +25,7 @@ export class AuthService  {
     localStorage.setItem('bwm_auth', token);
     localStorage.setItem('bwm_meta', JSON.stringify(this.decodedToken));
  
-   return token;
+    return token;
   } 
 
   private getExpiration() {
