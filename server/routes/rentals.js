@@ -8,9 +8,9 @@ router.get('/secret', UserCtrl.authMiddleware, function(req, res) {
   res.json({'secret': true});
 });
 
+// .select(-bookings)
 router.get('', function(req, res) {
    Rental.find({})
-     .select(-bookings)
      .exec(function(err, foundRentals) {
           res.json(foundRentals);
     });

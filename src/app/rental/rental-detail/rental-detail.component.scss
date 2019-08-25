@@ -10,7 +10,6 @@
      margin-bottom: 30px;
   }
 
- 
   .details-section {
      color: $main-text-color;
   .rental {
@@ -20,91 +19,74 @@
        text-transform: uppercase;
        margin: 0;
    }
-
-  
       &-title {
-
         margin-bottom: 5px;
-
         font-size: 32px;
-
         font-weight: 700;
-
        }
-
  
        &-city {
- 
        font-size: 14px;
-
        font-weight: 300;
- 
        margin-bottom: 20px;
- 
        }
-
  
        &-room-info {
-
-
          margin-bottom: 20px;
-
          font-weight: 300;
-
          font-size: 16px;
-
  
         span {
- 
          margin-right: 10px;
-
         }
-
  
        i {
- 
          margin-right: 2px;
-
         }
-  
        }
 
-    
        &-description {
-
         font-weight: 300;
-
         margin-bottom: 30px;
- 
        }
-
  
        &-assets {
-
         .title {
-
           margin-bottom: 10px;
- 
-         font-weight: 700;
- 
-         font-size: 22px;
-
+          font-weight: 700;
+          font-size: 22px;
         }
 
         span {
- 
          display: block;
-
           margin-bottom: 15px;
-
           font-weight: 300;
- 
          }
-
         }
-
     }
-  
   }
+}
 
+//modal
+
+.title {
+  font-weight: 700;
+  font-size: 24px; 
+}
+.buttons {
+  margin: 15px 0px
+}
+
+em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+p {
+ margin: 0;
+}
+
+.modal-error {
+  margin: 16px;
 }
