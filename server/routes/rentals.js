@@ -9,6 +9,21 @@ router.get('/secret', UserCtrl.authMiddleware, function(req, res) {
   res.json({'secret': true});
 });
 
+router.get('/manage', UserCtrl.authMiddleware, function(req, res) {
+  const user = res.locals.user;
+
+  Rental
+    .where({user})
+    .populate('bookings')
+    .exec(function(err, foundRentals) {
+
+    if(err) {
+       return res.status(422).send({errors: normalizeErrors(err.errors)});
+     }
+     return res.json(foundRentals);
+   });
+});
+
 router.get('/:id', function(req, res) {
   const rentalId = req.params.id;
 
@@ -16,10 +31,44 @@ router.get('/:id', function(req, res) {
     .populate('user', 'username -_id')
     .populate('bookings', 'startAt endAt -_id')
     .exec(function(err, foundRental) {
-  if(err) {
-     return res.status(422).send({errors: [{title: 'Rental Error', detail: 'Could not find rental'}] });
-  }
-  return res.json(foundRental);
+    if(err) {
+      return res.status(422).send({errors: [{title: 'Rental Error', detail: 'Could not find rental'}] });
+    }
+    return res.json(foundRental);
+  });
+});
+
+router.delete('/:id', UserCtrl.authMiddleware, function(req, res) {
+  const user = res.locals.user;
+
+  Rental
+    .findById(req.params.id)
+    .populate('user', '_id')
+    .populate({
+      path: 'bookings',
+      select: 'startAt',
+      match: { startAt: { $gt: new Date() }}
+    })
+    .exec(function(err, foundRental) {
+    if(err) {
+        return res.status(422).send({errors: normalizeErrors(err.errors)});
+    }
+
+    if(user.id !== foundRental.user.id) {
+        return res.status(422).send({errors: [{title:'Invalid User', detail: 'You are not rental owner!'}] });
+    }
+
+    // check for active bookings
+    if(foundRental.bookings.length > 0) {
+        return res.status(422).send({errors: [{title: 'Active Bookings!', detail: 'Cannot delete rental with active bookings!'}] });
+    }
+
+    foundRental.remove(function(err) {
+      if(err) {
+        return res.status(422).send({errors: normalizeErrors(err.errors)});
+      }
+      return res.json({'status': 'deleted'});
+    });
   });
 });
 
@@ -39,7 +88,6 @@ router.post('', UserCtrl.authMiddleware, function(req, res) {
 
     return res.json(newRental);
   });
-
 });
 
 router.get('', function(req, res) {
