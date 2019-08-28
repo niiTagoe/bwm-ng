@@ -21,8 +21,6 @@ import { BookingService } from '../booking/shared/booking.service';
 import { UppercasePipe } from '../common/pipes/uppercase.pipe';
 import { AuthGuard } from '../auth/shared/auth.guard';
 
-
-
 const routes: Routes = [
     { path: 'rentals',
        component: RentalComponent, 

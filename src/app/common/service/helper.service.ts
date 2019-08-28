@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import moment = require('moment');
+import * as moment from 'moment';
 import { Booking } from '../../booking/shared/booking.model';
 
 @Injectable()
