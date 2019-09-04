@@ -5,13 +5,13 @@ import { CanActivate,
     } from '@angular/router';
 
 import { AuthService } from './auth.service';
-import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
  private url: string;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService,
+             private router: Router) {}
 
   private handleAuthState(): boolean {
     if (this.isLoginorRegister()) {
@@ -41,7 +41,6 @@ export class AuthGuard implements CanActivate {
     if (this.auth.isAuthenticated()) {
         return this.handleAuthState();
      }
-    
      return this.handleNotAuthState();
   }
 }

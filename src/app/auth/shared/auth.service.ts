@@ -49,7 +49,7 @@ export class AuthService  {
  }
 
  isAuthenticated(): boolean {
-  return moment().isBefore(this.getExpiration());
+    return moment().isBefore(this.getExpiration());
  }
  public getToken(): string {
    return localStorage.getItem('bwm_auth');
