@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { EditableComponent } from '../editable-component';
-import { ValueTransformer } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'bwm-editable-input',

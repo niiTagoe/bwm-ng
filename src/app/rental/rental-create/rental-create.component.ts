@@ -27,6 +27,14 @@ export class RentalCreateComponent implements OnInit {
     this.newRental.image = "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg"
   }
 
+  handleImageUpload(imageUrl: string) {
+    this.newRental.image = imageUrl;
+  }
+
+  handleImageError() {
+    this.newRental.image = '';
+  }
+
   createRental() {
     this.rentalService.createRental(this.newRental).subscribe(
       (rental: Rental) => {        
@@ -34,6 +42,6 @@ export class RentalCreateComponent implements OnInit {
       },
       (errorResponse: HttpErrorResponse) => {
          this.errors = errorResponse.error.errors;
-      })
+      });
   }
 }

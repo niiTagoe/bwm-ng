@@ -12,7 +12,7 @@
       <p><span>Date:</span> {{boonking.startAt | formatDate}} - {{booking.endAt | formatDate}}</p> <!-- startAt - endAt -->
       <p><span>Guests:</span> {{booking.guests}}</p> <!-- guests -->
       <p><span>Total Price:</span>{{booking.totalPrice}} $</p> <!-- totalPrice -->
-      <hr *ngIf="bookings.length != i +1" > <!-- optional: do not display after last element -->
+      <hr *ngIf="bookings.length != i + 1" > <!-- optional: do not display after last element -->
     </div>
   </div>
   <div class="modal-footer">
