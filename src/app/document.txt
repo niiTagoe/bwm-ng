@@ -31,6 +31,30 @@ npm install moment --save
 npm install ng2-daterangepicker@2.0.12 --save
 
 npm install -save @types/jquery@3.2.12 jquery@3.2.1
+https://www.npmjs.com/package/ng2-daterangepicker
+
+*****Pipes
+1 ngx-pipes
+
+https://www.npmjs.com/package/ngx-pipes 
+
+npm install ngx-pipes --save 
+
+import {NgPipesModule} from 'ngx-pipes';
+
+******Image Upload
+1. Multer
+   https://www.npmjs.com/package/multer
+
+   npm install --save multer
+
+   To include AWS then the installation will be
+
+   npm install --save multer multer-s3 aws-sdk
+
+   https://www.npmjs.com/package/multer-s3
+   https://www.npmjs.com/package/aws-sdk
+
 
 http://www.daterangepicker.com/
 https://github.com/evansmwendwa/ng2-daterangepicker
@@ -48,6 +72,15 @@ https://www.npmjs.com/package/ngx-toastr
 npm install ngx-toastr@8.10.2 --save
 
 
+
+**********Image Cropper
+https://www.npmjs.com/package/ngx-image-cropper
+
+npm install ngx-image-cropper --save
+
+import { ImageCropperModule } from 'ngx-image-cropper';
+
+
 ******Articles to read
 https://alligator.io/angular/viewchild-access-component/
 https://angular.io/api/core/ViewChild
@@ -56,3 +89,9 @@ https://github.com/evansmwendwa/ng2-daterangepicker
 
 ##### Angular Styles #####
 https://angular.io/guide/component-styles
+
+
+*******Nice Design - Borrow design idea
+https://www.techiediaries.com/angular-tutorial-forms-authentication-expressjs/
+
+https://www.techiediaries.com/angular-tutorial-basics/
