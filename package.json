@@ -31,7 +31,7 @@
     "@ng-bootstrap/ng-bootstrap": "^1.1.2",
     "@types/jquery": "^3.2.12",
     "aws-sdk": "^2.522.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.1.0",
     "core-js": "^2.4.1",
